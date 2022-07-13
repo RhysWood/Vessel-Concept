@@ -2,6 +2,7 @@ import {useState} from 'react';
 import '../styles/Navbar.css';
 import { MenuItems } from './Menuitems';
 import VesselLogo from '../imgs/vessel-logo.png';
+import Button from './Button';
 
 export default function Navbar() {
     const [clicked, setClicked] = useState(false);
@@ -29,6 +30,7 @@ export default function Navbar() {
                         )
                     })}
                 </ul>
+               <Button>Sign up</Button>
             </nav>
         </>
     );
