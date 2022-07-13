@@ -1,0 +1,49 @@
+@import "bootstrap";
+
+.parent {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: auto;
+}
+
+.child {
+    margin: auto;
+    width: 25%;
+}
+
+.input-section {
+    padding-bottom: 30px;
+}
+
+label {
+    color: #fcc860;
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    padding-bottom: 3px;
+    font-size: 0.8em;
+}
+
+.errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+$mynewcolor:#fcc860;
+
+.btn-primary {
+    @include button-variant($mynewcolor, darken($mynewcolor, 7.5%), darken($mynewcolor, 10%), lighten($mynewcolor,5%), lighten($mynewcolor, 10%), darken($mynewcolor,30%));
+}
+
+.btn-outline-primary {
+    @include button-outline-variant($mynewcolor, #222222, lighten($mynewcolor,5%), $mynewcolor);
+}

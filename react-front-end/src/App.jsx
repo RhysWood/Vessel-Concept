@@ -1,11 +1,17 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Login from "./components/Login";
 
 function App() {
   return (
-    <p>
-      Vessel Packaging Concept
-    </p>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
