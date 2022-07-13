@@ -101,7 +101,7 @@ export default function Login() {
           </div>
           <div className="d-grid">
             <button type="submit" className="btn btn-lg btn-primary mr-1">
-              Log in
+              Login
             </button>
           </div>
         </form>
