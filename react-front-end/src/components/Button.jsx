@@ -3,13 +3,13 @@ import '../styles/Button.css'
 
 
 const STYLES =[
-    'btn--primary', 
-    'btn--outline'
+    'bttn--primary', 
+    'bttn--outline'
 ]
 
 const SIZES =[
-    'btn--medium', 
-    'btn--large'
+    'bttn--medium', 
+    'bttn--large'
 ]
 
 const Button = ({
@@ -24,7 +24,7 @@ const Button = ({
     const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]
 
     return(
-        <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>
+        <button className={`bttn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>
             {children}
         </button>
     )
