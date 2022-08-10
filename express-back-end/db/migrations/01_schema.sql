@@ -36,7 +36,7 @@ CREATE TABLE "inventory" (
   "business" int,
   "brand" varchar(100),
   "can_size" varchar(300),
-  "quantity" int,
+  "on_hand" int,
   "PSL" boolean,
   "shrink" boolean
 );
