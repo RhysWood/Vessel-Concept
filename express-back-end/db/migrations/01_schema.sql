@@ -49,7 +49,7 @@ CREATE TABLE "orders" (
 );
 
 CREATE TABLE "orders_items" (
-  "id" int,
+  "id" SERIAL PRIMARY KEY,
   "item_id" int,
   "order_id" int
 );
