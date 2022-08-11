@@ -45,7 +45,8 @@ CREATE TABLE "orders" (
   "business_id" int,
   "submitted" boolean,
   "requested_date" datetime,
-  "ship_date" datetime
+  "ship_date" datetime,
+  "shipped" boolean
 );
 
 CREATE TABLE "orders_items" (
