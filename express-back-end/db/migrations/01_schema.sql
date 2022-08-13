@@ -15,6 +15,13 @@ CREATE TABLE "users" (
   "admin" boolean
 );
 
+CREATE TABLE "items" (
+  "id" SERIAL PRIMARY KEY,
+  "inventory_id" int,
+  "quantity" int,
+  "total_price" decimal
+);
+
 CREATE TABLE "businesses" (
   "id" SERIAL PRIMARY KEY,
   "name" varchar(100),
@@ -30,22 +37,15 @@ CREATE TABLE "inventory" (
   "can_size" varchar(300),
   "on_hand" int,
   "PSL" boolean,
-  "price" decimal,
-);
-
-CREATE TABLE "items" (
-  "id" SERIAL PRIMARY KEY,
-  "inventory_id" int,
-  "quantity" int,
-  "total_price" decimal,
+  "price" decimal
 );
 
 CREATE TABLE "orders" (
   "id" SERIAL PRIMARY KEY,
   "business_id" int,
   "submitted" boolean,
-  "requested_date" datetime,
-  "ship_date" datetime,
+  "requested_date" timestamp,
+  "ship_date" timestamp,
   "shipped" boolean
 );
 
