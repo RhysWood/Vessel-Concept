@@ -1,4 +1,4 @@
-INSERT INTO businesses (name, address, main_contact, CRS) VALUES
+INSERT INTO businesses (name, address, main_contact, crs) VALUES
 ('Main St Brewing', '123 Main St', 1, 'Brad Hawthshaw'),
 ('Strathcona Brewing', '123 East Hastings', 2, 'Erin Boyle'),
 ('Brassneck Brewing', '123 West Hastings', 3, 'Erin Boyle'),

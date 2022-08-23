@@ -33,6 +33,10 @@ App.get('/', (req, res) => res.json({
   message: "Seems to work!",
 }));
 
+App.get('/users', db.getUsers)
+App.get('/users/:id', db.getUserById)
+App.get('/users/email/:email', db.findUserByEmail)
+
 App.listen(PORT, () => {
   console.log(`Express seems to be listening on port ${PORT} so that's pretty good 👍`);
 });

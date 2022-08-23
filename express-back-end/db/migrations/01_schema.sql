@@ -27,7 +27,7 @@ CREATE TABLE "businesses" (
   "name" varchar(100),
   "address" varchar(300),
   "main_contact" int,
-  "CRS" varchar(100)
+  "crs" varchar(100)
 );
 
 CREATE TABLE "inventory" (
@@ -36,7 +36,7 @@ CREATE TABLE "inventory" (
   "brand" varchar(100),
   "can_size" varchar(300),
   "on_hand" int,
-  "PSL" boolean,
+  "psl" boolean,
   "price" decimal
 );
 
