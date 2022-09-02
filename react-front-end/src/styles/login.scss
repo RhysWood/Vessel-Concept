@@ -1,5 +1,3 @@
-@import "bootstrap";
-
 $mynewcolor:#fcc860;
 
 .parent {
@@ -38,8 +36,4 @@ label {
 .offscreen {
     position: absolute;
     left: -9999px;
-}
-
-.d-grid .btn-primary {
-    @include button-variant($mynewcolor, darken($mynewcolor, 7.5%), darken($mynewcolor, 100%), lighten($mynewcolor,5%), lighten($mynewcolor, 10%), darken($mynewcolor,40%));
 }

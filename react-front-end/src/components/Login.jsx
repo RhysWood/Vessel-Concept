@@ -1,7 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import "../styles/login.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "./Button";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 import axios from "../api/axios";
 const LOGIN_URL = "/auth";
@@ -100,9 +101,9 @@ export default function Login() {
             </div>
           </div>
           <div className="d-grid">
-            <button type="submit" className="btn btn-lg btn-primary mr-1">
+            <Button>
               Login
-            </button>
+            </Button>
           </div>
         </form>
       </div>
