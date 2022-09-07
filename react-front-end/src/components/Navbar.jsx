@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import '../styles/Navbar.css';
 import { MenuItems } from './Menuitems';
+import { Link } from "react-router-dom";
 import VesselLogo from '../imgs/vessel-logo.png';
 import Button from './Button';
 
@@ -15,7 +16,13 @@ export default function Navbar() {
     return(
         <>
             <nav className='NavbarItems'>
-                <h1 className='navbar-logo'><img className='vlogo' src={VesselLogo} alt='Vessel Logo'></img></h1>
+            <h1 className='navbar-logo'>
+                <Link to='/'>
+                <img className='vlogo' src={VesselLogo} alt='Vessel Logo'>
+
+                </img>
+                </Link>
+            </h1>
                 <div className='menu-icon' onClick={handleClick}>
                     <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
