@@ -1,0 +1,36 @@
+.parent {
+    background: #231f20; 
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    display: flex;
+    align-items: center;
+    Justify-content: center;
+    width: auto;
+}
+
+.line-1{
+    position: relative;
+    top: 50%;  
+    width: 12em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(27) 1s 1 normal both,
+             blinkTextCursor 500ms steps(27) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 15em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
