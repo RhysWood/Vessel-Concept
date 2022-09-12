@@ -16,7 +16,7 @@ const getUsers = (request, response) => {
     })
   }
 
-  const getUserById = (request, response) => {
+const getUserById = (request, response) => {
     const id = parseInt(request.params.id)
   
     pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
@@ -30,8 +30,8 @@ const getUsers = (request, response) => {
 const findUserByEmail = (email) => {
   let user;
   return new Promise ((resolve, reject) => {
-    pool.query('SELECT * FROM users WHERE email = $1', [email], (error, results) => {
-      if (results.rows.length === 0) {
+    pool.query('SELECT * FROM users WHERE email_address = $1', [email], (error, results) => {
+      if (results.length === 0 || error) {
         reject('oh no! you are not registered')
       }
       for (let i = 0; i < results.rows.length; i++) {
