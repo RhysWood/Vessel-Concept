@@ -13,15 +13,16 @@ $mynewcolor:#fcc860;
 }
 
 .input-section {
+    width: auto;
     padding-bottom: 30px;
 }
 
 label {
     color: #fcc860;
     font-family: Arial, Helvetica, sans-serif;
-    float: left;
-    padding-bottom: 3px;
-    font-size: 0.8em;
+    width: auto;
+    margin-bottom: 16px;
+    font-size: 14px;
 }
 
 .errmsg {
@@ -36,4 +37,10 @@ label {
 .offscreen {
     position: absolute;
     left: -9999px;
+}
+
+.mb-3 {
+    display: block;
+    text-align: center;
+    padding: 1em;
 }

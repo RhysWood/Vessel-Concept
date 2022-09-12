@@ -75,6 +75,7 @@ export default function Login() {
           <div className="input-section">
             <div className="mb-3">
               <label>Email address</label>
+              <br/>
               <input
                 type="email"
                 id="email"
@@ -89,6 +90,7 @@ export default function Login() {
             </div>
             <div className="mb-3">
               <label>Password</label>
+              <br/>
               <input
                 type="password"
                 id="password"
