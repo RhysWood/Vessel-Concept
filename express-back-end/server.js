@@ -45,10 +45,10 @@ App.post("/auth", (req, res) => {
     console.log(result);
    let user = result;
    const hashedPassword = user.password
-  //  const access = bcrypt.compareSync(password, hashedPassword);
-  //  if (!access){
-  //   return res.status(401).send('password does not match.');
-  //  }
+   const access = bcrypt.compareSync(password, hashedPassword);
+   if (!access){
+    return res.status(401).send('password does not match.');
+   }
    //happy path 
    req.session.user_id = user.id;
    res.redirect('/')
