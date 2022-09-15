@@ -42,8 +42,20 @@ const findUserByEmail = (email) => {
   })
 }
 
+const addUser = (email, password) => {
+  return new Promise ((resolve, reject) => {
+    pool.query('INSERT INTO users (email_address, password) VALUES ($1, $2) RETURNING *', [email, password], (error, results) => {
+      if (error) {
+        reject(error)
+      }
+      resolve(results.rows[0])
+    })
+  })
+}
+
 module.exports = {
     getUsers,
     getUserById,
     findUserByEmail,
+    addUser,
 }
