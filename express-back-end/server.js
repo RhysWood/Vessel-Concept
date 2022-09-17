@@ -13,6 +13,8 @@ const corsOptions ={
    optionSuccessStatus:200,
 }
 const bcrypt = require('bcryptjs');
+const saltRounds = 10;
+
 
 App.use(cors(corsOptions))
 App.use(cookieSession({
@@ -37,18 +39,16 @@ App.get('/users', db.getUsers)
 App.get('/users/:id', db.getUserById)
 App.get('/users/email/:email', db.findUserByEmail)
 
-App.post('/register', (req, res) => {
-  const { email, password } = req.body;
-  const hashedPassword = bcrypt.hashSync(password, 10);
-  db.addUser(email, hashedPassword)
-    .then((user) => {
-      req.session.user_id = user.id;
-      res.redirect('/');
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ error: err.message });
-    });
+App.post("/register", async (req, res) => {
+  console.log(req.body);
+  try {
+    const hashedPwd = await bcrypt.hash(req.body.pwd, saltRounds);
+    await db.addUser(req.body.user, hashedPwd);
+    res.status(200).send("User added");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal Server error Occured");
+  }
 });
 
 App.post('/login', (req, res) => {
@@ -57,6 +57,7 @@ App.post('/login', (req, res) => {
     .then((user) => {
       if (bcrypt.compareSync(password, user.password)) {
         req.session.user_id = user.id;
+        console.log(`User ${user.id} logged in!`);
         res.redirect('/');
       } else {
         res.status(403).json({ error: 'Incorrect password' });
@@ -67,28 +68,6 @@ App.post('/login', (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
-
-// App.post("/auth", (req, res) => {
-//   const email = req.body.user;
-//   const password = req.body.pwd;
-//   let user;
-//   db.findUserByEmail(email).then(result => {
-//     console.log(result);
-//    let user = result;
-//    const hashedPassword = user.password
-//    const access = bcrypt.compareSync(password, hashedPassword);
-//    if (!access){
-//     return res.status(401).send('password does not match.');
-//    }
-//    //happy path 
-//    req.session.user_id = user.id;
-//    res.redirect('/')
-// }).catch(error => {
-//     console.log('error:', error);
-//     res.status(401).send('no user exists in db')
-// });
-//   console.log("THIS IS MY LOG:" + JSON.stringify(req.body));
-// });
 
 
 App.listen(PORT, () => {
