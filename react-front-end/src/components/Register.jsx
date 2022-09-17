@@ -56,15 +56,15 @@ export default function Register() {
 
     return (
         <div className="parent">
-            <h1>REGISTER</h1>
+          <div className="child">
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
             aria-live="assertive"
-          >
+            >
             {errMsg}
           </p>
-          <div className="child">
+              <h1>REGISTER</h1>
             <form onSubmit={handleSubmit}>
               <div className="input-section">
               <div className="mb-3">

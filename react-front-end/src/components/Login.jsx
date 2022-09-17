@@ -2,11 +2,13 @@ import { useRef, useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import "../styles/login.scss";
 import Button from "./Button";
-// import "bootstrap/dist/css/bootstrap.min.css";
-
+import { useRecoilState } from "recoil";
+import profileState from "./atoms";
 import axios from "../api/axios";
 
 export default function Login() {
+  const [profile, setProfile] = useRecoilState(profileState);
+
   const userRef = useRef();
   const errRef = useRef();
 
@@ -37,12 +39,13 @@ export default function Login() {
           withCredentials: true,
         }
       );
+      setProfile(response.data);
       console.log(JSON.stringify(response?.data));
-
       setUser("");
       setPwd("");
       setSuccess(true);
       if (success) {
+        
         <Navigate to="/profile" />;
       }
     } catch (err) {
@@ -62,6 +65,7 @@ export default function Login() {
 
   return (
     <div className="parent">
+      <div className="child">
       <p
         ref={errRef}
         className={errMsg ? "errmsg" : "offscreen"}
@@ -69,7 +73,7 @@ export default function Login() {
       >
         {errMsg}
       </p>
-      <div className="child">
+      <h1 className="signin">Sign In</h1>
         <form onSubmit={handleSubmit}>
           <div className="input-section">
             <div className="mb-3">

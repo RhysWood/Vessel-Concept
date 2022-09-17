@@ -59,7 +59,7 @@ App.post('/login', (req, res) => {
       if (bcrypt.compareSync(password, user.password)) {
         req.session.user_id = user.id;
         console.log(`User ${user.id} logged in!`);
-        res.redirect('/');
+        res.send({first_name : user.first_name, last_name: user.last_name, email_address: user.email_address, phone_number: user.phone_number});
       } else {
         res.status(403).json({ error: 'Incorrect password' });
       }

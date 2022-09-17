@@ -37,7 +37,9 @@ export default function Navbar() {
                         )
                     })}
                 </ul>
+                <Link to='/register'>
                <Button>Sign up</Button>
+               </Link>
             </nav>
         </>
     );
