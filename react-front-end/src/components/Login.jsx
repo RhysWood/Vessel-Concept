@@ -5,7 +5,6 @@ import Button from "./Button";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 import axios from "../api/axios";
-const LOGIN_URL = "/login";
 
 export default function Login() {
   const userRef = useRef();
@@ -28,18 +27,36 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("submitting");
     try {
-      const res = await axios.post(LOGIN_URL, {
-        user,
-        pwd,
-      });
-      if (res.data.success) {
-        setSuccess(true);
-      } else {
-        setErrMsg(res.data.msg);
+      const response = await axios.post(
+        '/login',
+        JSON.stringify({ user, pwd }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+
+      setUser("");
+      setPwd("");
+      setSuccess(true);
+      if (success) {
+        <Navigate to="/profile" />;
       }
     } catch (err) {
       console.log(err);
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing Username or Password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login Failed");
+      }
+      errRef.current.focus();
     }
   };
 

@@ -52,7 +52,8 @@ App.post("/register", async (req, res) => {
 });
 
 App.post('/login', (req, res) => {
-  const { email, password } = req.body;
+  const email = req.body.user;
+  const password = req.body.pwd;
   db.findUserByEmail(email)
     .then((user) => {
       if (bcrypt.compareSync(password, user.password)) {
