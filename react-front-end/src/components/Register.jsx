@@ -12,7 +12,11 @@ export default function Register() {
     const errRef = useRef();
     const [errMsg, setErrMsg] = useState("");
     const [user, setUser] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [pwd, setPwd] = useState("");
+    const [num, setNum] = useState("");
+
     const [success, setSuccess] = useState(false);
 
     const handleSubmit = async (e) => {
@@ -21,7 +25,7 @@ export default function Register() {
         try {
           const response = await axios.post(
             '/register',
-            JSON.stringify({ user, pwd }),
+            JSON.stringify({ firstName, lastName, user, pwd, num }),
             {
               headers: { "Content-Type": "application/json" },
               withCredentials: true,
@@ -63,6 +67,32 @@ export default function Register() {
           <div className="child">
             <form onSubmit={handleSubmit}>
               <div className="input-section">
+              <div className="mb-3">
+                  <label>First Name</label>
+                  <br/>
+                  <input
+                    type="text"
+                    id="firstName"
+                    onChange={(e) => setFirstName(e.target.value)}
+                    value={firstName}
+                    className="form-control"
+                    placeholder="First Name"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label>Last Name</label>
+                  <br/>
+                  <input
+                    type="text"
+                    id="lastName"
+                    onChange={(e) => setLastName(e.target.value)}
+                    value={lastName}
+                    className="form-control"
+                    placeholder="Last Name"
+                    required
+                  />
+                </div>
                 <div className="mb-3">
                   <label>Email address</label>
                   <br/>
@@ -91,10 +121,23 @@ export default function Register() {
                     required
                   />
                 </div>
+                <div className="mb-3">
+                  <label>Phone Number</label>
+                  <br/>
+                  <input
+                    type="tel"
+                    id="num"
+                    onChange={(e) => setNum(e.target.value)}
+                    value={num}
+                    className="form-control"
+                    placeholder="Phone Number"
+                    required
+                  />
+                </div>
               </div>
               <div className="d-grid">
                 <Button>
-                  Login
+                  Register
                 </Button>
               </div>
             </form>

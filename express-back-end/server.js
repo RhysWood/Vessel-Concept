@@ -43,7 +43,7 @@ App.post("/register", async (req, res) => {
   console.log(req.body);
   try {
     const hashedPwd = await bcrypt.hash(req.body.pwd, saltRounds);
-    await db.addUser(req.body.user, hashedPwd);
+    await db.addUser(req.body.firstName, req.body.lastName, req.body.user, hashedPwd, req.body.num);
     res.status(200).send("User added");
   } catch (error) {
     console.log(error);
