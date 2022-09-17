@@ -7,11 +7,10 @@ import profileState from "./atoms";
 import axios from "../api/axios";
 
 export default function Login() {
-  const [profile, setProfile] = useRecoilState(profileState);
+  const [setProfile] = useRecoilState(profileState);
 
   const userRef = useRef();
   const errRef = useRef();
-
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
