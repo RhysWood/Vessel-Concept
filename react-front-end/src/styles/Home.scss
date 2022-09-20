@@ -23,13 +23,25 @@
 
 /* Animation */
 .anim-typewriter{
-  animation: typewriter 4s steps(27) 1s 1 normal both,
-             blinkTextCursor 500ms steps(27) infinite normal;
+  animation: typewriter 2s steps(18) 1s 1 normal both,
+             blinkTextCursor 500ms steps(10) infinite normal;
 }
+
+.anim-typewriter2{
+  animation: typewriter2 2s steps(27) 1s 1 normal both,
+             blinkTextCursor 500ms steps(20) infinite normal;
+}
+
 @keyframes typewriter{
   from{width: 0;}
-  to{width: 15em;}
+  to{width: 9em;}
 }
+
+@keyframes typewriter2{
+  from{width: 0;}
+  to{width: 14em;}
+}
+
 @keyframes blinkTextCursor{
   from{border-right-color: rgba(255,255,255,.75);}
   to{border-right-color: transparent;}
