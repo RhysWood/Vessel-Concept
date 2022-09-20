@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import '../styles/Navbar.css';
+import '../styles/Navbar.scss';
 import { MenuItems } from './Menuitems';
 import { Link } from "react-router-dom";
 import VesselLogo from '../imgs/vessel-logo.png';
@@ -27,7 +27,7 @@ export default function Navbar() {
         } else {
             return (
                 <>
-                    <p>{`Hello ${profile.first_name}`}</p>
+                    <p className='welcomeName'>{`Hello, ${profile.first_name}`}</p>
                     <Logout />
                 </>
             )
