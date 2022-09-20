@@ -2,12 +2,14 @@ import { useRef, useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import "../styles/login.scss";
 import Button from "./Button";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilState } from "recoil";
 import profileState from "./atoms";
 import axios from "../api/axios";
 
+
 export default function Login() {
-  const [setProfile] = useRecoilState(profileState);
+  const profile = useRecoilState(profileState);
+  const setProfile = useSetRecoilState(profileState);
 
   const userRef = useRef();
   const errRef = useRef();
@@ -39,7 +41,7 @@ export default function Login() {
         }
       );
       setProfile(response.data);
-      console.log(JSON.stringify(response?.data));
+      console.log(profile);
       setUser("");
       setPwd("");
       setSuccess(true);

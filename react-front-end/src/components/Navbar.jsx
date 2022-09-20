@@ -4,14 +4,35 @@ import { MenuItems } from './Menuitems';
 import { Link } from "react-router-dom";
 import VesselLogo from '../imgs/vessel-logo.png';
 import Button from './Button';
+import { useRecoilState } from 'recoil';
+import profileState from './atoms';
+import Logout from './Logout';
 
 export default function Navbar() {
     const [clicked, setClicked] = useState(false);
-
+    const [profile] = useRecoilState(profileState);
     const handleClick = () => {
         setClicked(!clicked)
     }
     
+    const conditionalRender = () => {
+        if (profile.length === 0) {
+            return (
+                <>
+                     <Link to='/register'>
+                        <Button>Sign up</Button>
+                    </Link>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <p>{`Hello ${profile.first_name}`}</p>
+                    <Logout />
+                </>
+            )
+        }
+    }
 
     return(
         <>
@@ -37,9 +58,7 @@ export default function Navbar() {
                         )
                     })}
                 </ul>
-                <Link to='/register'>
-               <Button>Sign up</Button>
-               </Link>
+                {conditionalRender()}
             </nav>
         </>
     );

@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {RecoilRoot} from 'recoil';
 import "./App.css";
 import Navbar from "./components/Navbar"
 import Home from "./components/Home";
@@ -10,9 +9,9 @@ import Register from "./components/Register";
 
 
 function App() {
+
   return (
     <>
-     <RecoilRoot>
       <BrowserRouter>
       <Navbar />
         <Routes>
@@ -22,7 +21,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
-      </RecoilRoot>
     </>
   );
 }
