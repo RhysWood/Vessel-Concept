@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Button from "./Button";
 import axios from "../api/axios";
-import "../styles/login.scss";
+import "../styles/Register.scss";
 
 // const REGISTER_URL = "/register";
 
@@ -31,7 +31,6 @@ export default function Register() {
               withCredentials: true,
             }
           );
-          console.log(JSON.stringify(response?.data));
     
           setUser("");
           setPwd("");
@@ -56,6 +55,9 @@ export default function Register() {
 
     return (
         <div className="parent">
+            <div className="register">
+          <h1>REGISTER</h1>
+          </div>
           <div className="child">
           <p
             ref={errRef}
@@ -64,7 +66,7 @@ export default function Register() {
             >
             {errMsg}
           </p>
-              <h1>REGISTER</h1>
+              
             <form onSubmit={handleSubmit}>
               <div className="input-section">
               <div className="mb-3">
